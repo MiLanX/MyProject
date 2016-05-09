@@ -30,7 +30,7 @@ public class InWord{
        return new String(letters);
       }
       public static void main(String[] args){
-      	String res = new InWord().reverseWord("asuedye");
+      	String res = new InWord().reverseWord("hello");
       	System.out.println(res);
       }
 }
