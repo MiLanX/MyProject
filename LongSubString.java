@@ -1,30 +1,32 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 public class LongSubString{
-
-	public int lengthOfLongestSubstring(String s){
+	public int lengthSubString(String s){
 		char[] arr = s.toCharArray();
-		int max = 0, cur = 0, start = 0;
-		int[] map = new int[255];
+		int max = 0, cur = 0,start = 0,end = 0; 
+		int[] ch  = new int[125];
 		for(int i=0;i<arr.length;i++){
 			char c = arr[i];
-			if(map[c]==0){
-				map[c] = i+1;
+			if(ch[c] == 0){
+				ch[c] = i+1;
 				cur ++;
-				if(cur > max ){
+				if(max < cur){
 					max = cur;
 				}
 			}else{
-				int end = map[c]-1;
+				start = ch[i] -1;
 				for(int j = start;j<end;j++){
-					map[arr[j]] = 0;
+					ch[arr[j]] = 0;
 				}
-				start = end+1;
-				map[arr[i]] = i+1;
-				cur = i -end;
+				ch[c] = i+1;
+				cur++;
 			}
-
 		}
 		return max;
+	}
+	public static void main(String[] args){
+		String s = "asdbnmsiklb";
+		System.out.println(new LongSubString().lengthSubString(s));
 	}
 }
