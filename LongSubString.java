@@ -15,10 +15,12 @@ public class LongSubString{
 					max = cur;
 				}
 			}else{
-				start = ch[i] -1;
+				end = ch[i] -1;
 				for(int j = start;j<end;j++){
 					ch[arr[j]] = 0;
 				}
+				start = end+1;
+				ch[]
 				ch[c] = i+1;
 				cur++;
 			}
